@@ -1,39 +1,61 @@
 # GUI for TotalSegmentator
 
-A graphical interface for [TotalSegmentator](https://github.com/wasserth/TotalSegmentator), designed to make CT segmentation easier to use in radiotherapy workflows—particularly for users with limited command-line experience.
+<img width="1264" height="886" alt="Снимок экрана 2026-09-10 094645" src="https://github.com/user-attachments/assets/f2c63615-ca1e-433a-8126-d5b3b14ef84a" />
 
-The application provides a graphical way to select segmentation tasks, manage structure templates, process patients in batches, and export the resulting contours as a **DICOM RT Structure Set (RTSTRUCT, also referred to as RTSS)** for import into a treatment planning system (TPS). Segmentation is performed by TotalSegmentator; this project provides the interface and additional workflow tools.
+An unofficial, radiotherapy-oriented desktop interface for [TotalSegmentator](https://github.com/wasserth/TotalSegmentator).
+
+The project is intended to make TotalSegmentator easier to use in routine CT contouring workflows, particularly when command-line interaction is inconvenient or where the person performing segmentation is not expected to work directly with Python or CLI tools. The application provides a graphical way to select segmentation tasks, manage structure templates, process patients in batches, and export the resulting contours as a **DICOM RT Structure Set** for import into a treatment planning system (TPS). TotalSegmentator remains the segmentation engine.
+
+> **Important:** this project is an independent GUI and workflow utility. It is not part of, endorsed by, or affiliated with the TotalSegmentator project.
 
 ## Features
 
-### CT segmentation
+### TotalSegmentator features support
 
-- Access TotalSegmentator's CT segmentation tasks and anatomical classes.
-- Configure a TotalSegmentator license for tasks that require one.
-- Set a custom path for TotalSegmentator model weights.
-- Search tasks and structures in the Task and Template managers.
+- **CT images**
+- **CT tasks and anatomical classes provided by the installed TotalSegmentator version**
+- **licensed TotalSegmentator tasks**, using a license obtained from the TotalSegmentator authors
+- **custom TotalSegmentator weights location**, useful when model files need to be stored outside their default path
+- currently does not support TotalSegmentator's statistics and radiomics functionality.
 
-**The GUI currently supports CT images only. TotalSegmentator's radiomics features are not exposed through the interface.** Available tasks and classes depend on the TotalSegmentator version used, and some tasks require a separate license.
+### Additional features
 
-### Custom structure templates
+**Custom structure templates**
 
-Create and edit reusable templates containing the structures needed for a particular workflow. Templates can combine structures from different TotalSegmentator tasks and can be modified while preparing a segmentation run.
+Reusable structure templates can be created and edited for recurring workflows.
 
-**How mixed-task templates work:** the GUI runs every task needed by the template, then removes structures that are not included in it. It therefore processes complete tasks rather than running inference only for the selected structures. A template containing a small number of structures from several tasks may still take substantial time to process.
+Instead of selecting a complete TotalSegmentator task every time, a template can describe the final set of structures required for a particular use case. Templates can also combine structures originating from different TotalSegmentator tasks.
 
-### Patient selection and batch processing
+This makes it possible, for example, to prepare separate presets for different anatomical sites, planning protocols, or departments.
 
-- Browse a list of patients available for segmentation.
-- Build a queue for batch processing.
-- Assign an individual structure template to each patient in the queue.
+ *How mixed-task templates are processed*
+ 
+The GUI runs every task needed by the template, then removes structures that are not included in it. It therefore processes complete tasks rather than running inference only for the selected structures. A template containing a small number of structures from several tasks may still take substantial time to process.
 
-### RT Structure Set export
+**Patient selection and batch processing**
 
-- Convert the final set of selected structures into a DICOM RT Structure Set.
-- Optionally apply additional postprocessing before conversion to smooth the structures for subsequent treatment-planning review.
-- Use the cleanup option to retain only the resulting RT Structure Set in the segmentation output, simplifying the TPS import workflow.
+Now it is possible: 
 
-### Flexible deployment
+- browse patients available for segmentation;
+- add cases to a segmentation queue;
+- assign a different task or structure template to each patient;
+- adjust templates while preparing the queue;
+- process multiple cases sequentially.
+
+**RT Structure Set export**
+
+Segmentation results can be converted into a **DICOM RT Structure Set** for use in radiotherapy software.
+
+The export workflow can:
+
+- convert the final selected structures into RTSTRUCT contours;
+- apply optional contour postprocessing before conversion;
+- remove structures that are not part of the requested template;
+- optionally clean the working directory after successful processing so that only the resulting RTSTRUCT remains.
+
+The cleanup option is intended to simplify import into a TPS or other DICOM-based radiotherapy system when intermediate NIfTI masks are not needed.
+
+**Flexible deployment**
 
 The application supports execution using a prepared Conda environment, including portable deployment intended to avoid a conventional installation on the target workstation. This can be useful on third-party workstations, such as TPS workstations.
 
@@ -41,47 +63,13 @@ A prepared environment and compatible system dependencies are still required; po
 
 ## Getting started
 
-Application source code, distribution files, and step-by-step setup instructions have not yet been added to this repository. This README describes the application's current functionality; installation and launch instructions will be added alongside the distribution.
+### Installation and deployment
 
-For the segmentation engine's installation instructions, requirements, and model information, see the [TotalSegmentator documentation](https://github.com/wasserth/TotalSegmentator#installation). Installing TotalSegmentator alone does not install this GUI.
+### GUI manual
 
-## Typical workflow
+## Built with
 
-1. **Configure the segmentation environment.** Set up access to TotalSegmentator, choose a custom weights location if needed, and configure a license if your selected tasks require one.
-2. **Choose patients.** Select the cases to process from the patient list.
-3. **Choose the required structures.** Select a task or create, select, or edit a structure template. Use the search tools to find tasks and structures.
-4. **Prepare a batch if needed.** Add patients to the queue and assign the appropriate template to each patient.
-5. **Choose export options.** Enable optional postprocessing and output cleanup as required.
-6. **Run segmentation.** The GUI invokes the required TotalSegmentator tasks and retains the structures selected for the final output.
-7. **Import and review the RT Structure Set.** Import the exported file into your TPS and review the contours against the corresponding CT images.
-
-## Scope and limitations
-
-- **CT only:** MRI segmentation is not currently supported by this GUI.
-- **No radiomics interface:** TotalSegmentator's radiomics functionality is not currently available through the GUI.
-- **Complete-task processing for templates:** selecting individual structures across tasks does not limit inference to those structures.
-- **Upstream dependencies:** segmentation quality, task availability, and model requirements depend on TotalSegmentator and the models used.
-- **Postprocessing:** smoothing changes contour geometry and does not establish anatomical accuracy or suitability for a particular planning protocol.
-
-The interface is intended to simplify a radiotherapy-oriented workflow. This does not establish clinical validation. TotalSegmentator's [upstream documentation](https://github.com/wasserth/TotalSegmentator#usage) states that it is not a medical device and is not intended for clinical use.
-
-## Licensing
-
-### This GUI
-
-A license for this GUI has not yet been added to the repository.
-
-### TotalSegmentator and third-party components
-
-TotalSegmentator, its model weights, and the libraries used by this application have their own licensing terms.
-
-Some TotalSegmentator tasks require a license obtained directly from the TotalSegmentator authors. The GUI supports configuring that license, but does not provide one. See the [upstream task and licensing instructions](https://github.com/wasserth/TotalSegmentator#subtasks) for the current requirements and application process.
-
-## Acknowledgements and citations
-
-Medical-image segmentation is performed using [TotalSegmentator](https://github.com/wasserth/TotalSegmentator), which is based on [nnU-Net](https://github.com/MIC-DKFZ/nnUNet).
-
-This application is built with:
+The graphical application is built with:
 
 - [Qt for Python (PySide6)](https://doc.qt.io/qtforpython-6/)
 - [NumPy](https://numpy.org/)
@@ -89,10 +77,33 @@ This application is built with:
 - [pydicom](https://pydicom.github.io/)
 - [scikit-image](https://scikit-image.org/)
 
-If you use this software in scientific work, please cite the applicable TotalSegmentator and nnU-Net publications, along with the relevant scientific Python libraries.
+Medical-image segmentation is performed by:
+
+- [TotalSegmentator](https://github.com/wasserth/TotalSegmentator)
+- [nnU-Net](https://github.com/MIC-DKFZ/nnUNet), on which TotalSegmentator is based
+
+These projects remain separate dependencies with their own licenses, documentation, citation requirements, and terms of use.
+
+## Citation and acknowledgements
+
+If this GUI is used in scientific work, please cite the underlying segmentation methods and any other scientific software relevant to the analysis.
 
 For CT segmentation, the primary TotalSegmentator publication is:
 
-> Wasserthal J, et al. **TotalSegmentator: Robust Segmentation of 104 Anatomic Structures in CT Images.** Radiology: Artificial Intelligence, 2023. [DOI: 10.1148/ryai.230024](https://doi.org/10.1148/ryai.230024).
+> Wasserthal J, Breit H-C, Meyer MT, et al. **TotalSegmentator: Robust Segmentation of 104 Anatomic Structures in CT Images.** *Radiology: Artificial Intelligence*. 2023;5(5):e230024.  
+> https://doi.org/10.1148/ryai.230024
 
-See the [TotalSegmentator citation guidance](https://github.com/wasserth/TotalSegmentator#reference) and [nnU-Net repository](https://github.com/MIC-DKFZ/nnUNet) for the applicable references. Individual TotalSegmentator tasks may have additional licensing and citation requirements; consult the upstream documentation for the tasks you use.
+TotalSegmentator is heavily based on nnU-Net. The primary nnU-Net publication is:
+
+> Isensee F, Jaeger PF, Kohl SAA, Petersen J, Maier-Hein KH. **nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation.** *Nature Methods*. 2021;18:203-211.  
+> https://doi.org/10.1038/s41592-020-01008-z
+
+Individual TotalSegmentator tasks may have additional licensing or citation requirements. Always consult the current [TotalSegmentator documentation](https://github.com/wasserth/TotalSegmentator) for the tasks and models you use.
+
+Please also follow the citation guidance of the scientific Python libraries used in your work where applicable.
+
+## Development
+
+The **project concept, radiotherapy workflow, functional requirements, and interface/layout design** were created by me.
+
+The codebase was implemented with **OpenAI Codex** used as the coding agent under iterative direction and review.
