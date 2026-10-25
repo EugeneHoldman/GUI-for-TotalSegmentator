@@ -73,6 +73,8 @@ Choose the installation guide that matches your workstation:
 
 ### GUI manual
 
+- [TotalSegmentator UI — User Guide](docs/TotalSegmentator_UI_User_Guide.md)
+
 ## Built with
 
 The graphical application is built with:
