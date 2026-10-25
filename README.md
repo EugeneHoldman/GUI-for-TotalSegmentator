@@ -65,6 +65,12 @@ A prepared environment and compatible system dependencies are still required; po
 
 ### Installation and deployment
 
+Choose the installation guide that matches your workstation:
+
+- [Installation guide — Windows 11 workstation with Internet access](docs/installation/INSTALL_WINDOWS_ONLINE.md)
+- [Installation guide — Windows workstation without Internet access](docs/installation/INSTALL_WINDOWS_OFFLINE.md)
+- [Installation guide — Legacy Windows 10 workstation without Internet access (e.g., Eclipse TPS)](docs/installation/INSTALL_WINDOWS_LEGACY_ECLIPSE.md)
+
 ### GUI manual
 
 ## Built with
