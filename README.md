@@ -69,7 +69,7 @@ Choose the installation guide that matches your workstation:
 
 - [Installation guide — Windows 11 workstation with Internet access](docs/installation/INSTALL_WINDOWS_ONLINE.md)
 - [Installation guide — Windows workstation without Internet access](docs/installation/INSTALL_WINDOWS_OFFLINE.md)
-- [Installation guide — Legacy Windows 10 workstation without Internet access (e.g., Eclipse TPS)](docs/installation/INSTALL_WINDOWS_LEGACY_ECLIPSE.md)
+- [Installation guide — Legacy Windows 10 workstation without Internet access (e.g., Eclipse TPS workstation)](docs/installation/INSTALL_WINDOWS_LEGACY_ECLIPSE.md)
 
 ### GUI manual
 
