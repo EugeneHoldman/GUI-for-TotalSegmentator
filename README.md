@@ -77,7 +77,7 @@ Choose the installation guide that matches your workstation:
 
 ## Built with
 
-The graphical application is built with:
+The graphical application and its backend are built using:
 
 - [Qt for Python (PySide6)](https://doc.qt.io/qtforpython-6/)
 - [NumPy](https://numpy.org/)
