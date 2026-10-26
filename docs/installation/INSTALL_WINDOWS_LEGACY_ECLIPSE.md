@@ -87,15 +87,9 @@ Then:
 Download:
 
 - the Windows GUI distribution;
-- the project's **Conda environment path patch**.
+- the standalone Windows path-repair utility, **[hf_pattern_scan.exe](https://raw.githubusercontent.com/EugeneHoldman/GUI-for-TotalSegmentator/main/tools/hf_pattern_scan.exe)**.
 
-The commands below refer to the patch as:
-
-```text
-fix_conda_env_paths.py
-```
-
-If the actual project file has another name, use that filename instead.
+The utility is downloaded separately from the repository, not necessarily from Releases. If needed, open [its GitHub file page](https://github.com/EugeneHoldman/GUI-for-TotalSegmentator/blob/main/tools/hf_pattern_scan.exe) and select **Download raw file**. Keep `hf_pattern_scan.exe` for transfer to the offline workstation.
 
 ---
 
@@ -514,7 +508,7 @@ Transfer:
 
 1. GUI for TotalSegmentator Windows distribution;
 2. `TotalSegmentator_legacy_env.zip`;
-3. the project-specific Conda path-patch script;
+3. the downloaded `hf_pattern_scan.exe` path-repair utility;
 4. the entire:
 
    ```text
@@ -626,25 +620,21 @@ The final location must be:
 
 ---
 
-## 21. Put the custom path patch into the environment
+## 21. Put the Windows path-repair utility into the environment
 
-Copy the project's path patch into:
-
-```text
-C:\TotalSeg\env\Lib
-```
-
-Assuming the filename is:
+Copy the downloaded `hf_pattern_scan.exe` into the root of the extracted environment:
 
 ```text
-fix_conda_env_paths.py
+C:\TotalSeg\env
 ```
 
-the complete path is:
+The complete path should be:
 
 ```text
-C:\TotalSeg\env\Lib\fix_conda_env_paths.py
+C:\TotalSeg\env\hf_pattern_scan.exe
 ```
+
+This is a standalone Windows executable, not a Python script.
 
 ---
 
@@ -683,13 +673,13 @@ Wait for it to finish.
 
 ## 23. Run the additional project path patch
 
-With the environment still activated:
+With the environment still activated and Command Prompt in `C:\TotalSeg\env`, run:
 
 ```bat
-python Lib\fix_conda_env_paths.py
+hf_pattern_scan.exe
 ```
 
-If the patch has another filename, substitute the actual filename.
+Run this executable directly, without `python`.
 
 > **Do not move this environment afterwards.**
 >
@@ -799,7 +789,7 @@ Scripts\conda-unpack.exe
 and:
 
 ```bat
-python Lib\fix_conda_env_paths.py
+hf_pattern_scan.exe
 ```
 
 ---

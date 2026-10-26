@@ -71,6 +71,8 @@ Choose the installation guide that matches your workstation:
 - [Installation guide — Windows workstation without Internet access](docs/installation/INSTALL_WINDOWS_OFFLINE.md)
 - [Installation guide — Legacy Windows 10 workstation without Internet access (e.g., Eclipse TPS workstation)](docs/installation/INSTALL_WINDOWS_LEGACY_ECLIPSE.md)
 
+For offline Conda deployments, the [hf_pattern_scan.exe path-repair utility](tools/hf_pattern_scan.exe) is used after `conda-unpack` as described in the offline guides.
+
 ### GUI manual
 
 - [TotalSegmentator UI — User Guide](docs/TotalSegmentator_UI_User_Guide.md)
