@@ -1,0 +1,17 @@
+{
+  "template_name": "Chest",
+  "tasks": {
+    "Total": [
+      "esophagus",
+      "heart",
+      "spinal_cord"
+    ],
+    "breasts": [
+      "breast"
+    ],
+    "Combined organs": [
+      "lung_left",
+      "lung_right"
+    ]
+  }
+}

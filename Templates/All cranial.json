@@ -1,0 +1,17 @@
+{
+  "template_name": "All cranial",
+  "tasks": {
+    "Total": [
+      "spinal_cord",
+      "brain"
+    ],
+    "head_glands_cavities": [
+      "eye_left",
+      "eye_right",
+      "eye_lens_left",
+      "eye_lens_right",
+      "optic_nerve_left",
+      "optic_nerve_right"
+    ]
+  }
+}

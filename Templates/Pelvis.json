@@ -1,0 +1,16 @@
+{
+  "template_name": "Pelvis",
+  "tasks": {
+    "Total": [
+      "colon",
+      "duodenum",
+      "urinary_bladder",
+      "prostate",
+      "sacrum",
+      "femur_left",
+      "femur_right",
+      "spinal_cord",
+      "small_bowel"
+    ]
+  }
+}

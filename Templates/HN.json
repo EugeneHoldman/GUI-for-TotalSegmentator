@@ -1,0 +1,25 @@
+{
+  "template_name": "HN",
+  "tasks": {
+    "Total": [
+      "brain",
+      "skull",
+      "spinal_cord"
+    ],
+    "craniofacial_structures": [
+      "mandible"
+    ],
+    "head_glands_cavities": [
+      "eye_left",
+      "eye_right",
+      "eye_lens_left",
+      "eye_lens_right",
+      "optic_nerve_left",
+      "optic_nerve_right",
+      "parotid_gland_left",
+      "parotid_gland_right",
+      "submandibular_gland_right",
+      "submandibular_gland_left"
+    ]
+  }
+}

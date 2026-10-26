@@ -1,0 +1,17 @@
+{
+  "template_name": "Abdomen OARs",
+  "tasks": {
+    "Total": [
+      "spleen",
+      "kidney_right",
+      "kidney_left",
+      "liver",
+      "esophagus",
+      "spinal_cord"
+    ],
+    "Combined organs": [
+      "lung_left",
+      "lung_right"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "tasks": {
+    "Total": [
+      "brain"
+    ],
+    "brain_structures": [
+      "brainstem"
+    ],
+    "head_glands_cavities": [
+      "auditory_canal_left",
+      "auditory_canal_right",
+      "eye_left",
+      "eye_lens_left",
+      "eye_lens_right",
+      "eye_right",
+      "hypopharynx",
+      "optic_nerve_left",
+      "optic_nerve_right",
+      "parotid_gland_left",
+      "parotid_gland_right",
+      "submandibular_gland_left",
+      "submandibular_gland_right"
+    ]
+  },
+  "template_name": "BrainTest"
+}

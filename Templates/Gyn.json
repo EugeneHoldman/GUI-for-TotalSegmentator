@@ -1,0 +1,15 @@
+{
+  "template_name": "Gyn",
+  "tasks": {
+    "Total": [
+      "colon",
+      "duodenum",
+      "urinary_bladder",
+      "sacrum",
+      "femur_left",
+      "femur_right",
+      "spinal_cord",
+      "small_bowel"
+    ]
+  }
+}
